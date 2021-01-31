@@ -1,4 +1,5 @@
 import Button from '@material-ui/core/Button'
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever'
 
 // Types
 import {CartItemType} from '../App'
@@ -9,10 +10,11 @@ import {Wrapper} from './CartItem.styles'
 type Props = {
   item: CartItemType,
   addToCart: (product: CartItemType) => void,
-  removeFromCart: (id: number) => void
+  removeFromCart: (id: number) => void,
+  deleteItem: (id: number) => void
 }
 
-const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => {
+const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart, deleteItem}) => {
   return(
     <Wrapper>
       <div>
@@ -36,6 +38,9 @@ const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => {
             variant='contained'
             onClick={() => addToCart(item)}
           >+</Button>
+        </div>
+        <div className="delete">
+          <DeleteForeverIcon style={{fontSize: 50}} onClick={() => deleteItem(item.id)} />
         </div>
       </div>
       <img src={item.image} alt={item.title} width="300" height="300" />

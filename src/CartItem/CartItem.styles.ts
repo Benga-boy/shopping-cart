@@ -23,4 +23,9 @@ export const Wrapper = styled.div`
     margin-left: 40px;
   }
 
+  .delete {
+    margin-top: 30px;
+    cursor: pointer;
+  }
+
 `

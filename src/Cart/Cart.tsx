@@ -9,10 +9,11 @@ import {CartItemType} from '../App'
 type Props = {
   cartItems: CartItemType[],
   addToCart: (product: CartItemType) => void,
-  removeFromCart: (id: number) => void
+  removeFromCart: (id: number) => void,
+  deleteItem: (id: number) => void
 }
 
-const Cart: React.FC<Props> = ({cartItems, addToCart, removeFromCart}) => {
+const Cart: React.FC<Props> = ({cartItems, addToCart, removeFromCart, deleteItem}) => {
 
 
   return (
@@ -26,6 +27,7 @@ const Cart: React.FC<Props> = ({cartItems, addToCart, removeFromCart}) => {
           item={item}
           addToCart={addToCart}
           removeFromCart={removeFromCart}
+          deleteItem={deleteItem}
         />
       ))}
 

@@ -72,6 +72,11 @@ const App = () => {
     )
   }
 
+  // ! Function to delete item from cart entirely
+  const handleDeleteItem = (id: number) => {
+    setCartItems(cartItems.filter(item => item.id !== id))
+  }
+
   // ! Return loading bar whilst fetching data
   if (isLoading) return <LinearProgress />
   if (error) return <div>Something Went wrong</div>
@@ -80,7 +85,7 @@ const App = () => {
   return (
     <Wrapper>
       <Drawer anchor='right' open={cartOpen} onClose={() => setCartOpen(!cartOpen)}>
-        <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleDeleteFromCart} />
+        <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleDeleteFromCart} deleteItem={handleDeleteItem} />
       </Drawer>
       
       <StyledButton onClick={() => setCartOpen(!cartOpen)}>
