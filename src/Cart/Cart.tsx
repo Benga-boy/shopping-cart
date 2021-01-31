@@ -29,7 +29,7 @@ const Cart: React.FC<Props> = ({cartItems, addToCart, removeFromCart}) => {
         />
       ))}
 
-      <h2>Total: £{cartItems.reduce((acc, item) => acc + (item.amount * item.price), 0).toFixed(2)}</h2>
+      <h2>Total: ${cartItems.reduce((acc: number, item) => acc + (item.amount * item.price), 0).toFixed(2)}</h2>
     </Wrapper>
   )
 }
